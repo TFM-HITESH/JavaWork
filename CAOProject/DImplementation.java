@@ -1,0 +1,78 @@
+import java.util.*;
+
+public class DImplementation extends NormalTableRow
+{
+    public LinkedList<Character> dRow;
+
+    public DImplementation(PresentStatesRow presentRow, NextStatesRow nextRow, int maxValue)
+    {
+        super(maxValue);
+        this.dRow = new LinkedList<>();
+
+        for(int i = 0; i<super.maxDigits; i++)
+        {
+            char presentState = presentRow.presentRow.get(i);
+            char nextState = nextRow.nextRow.get(i);
+
+            switch(presentState)
+            {
+                case '0' :
+                {
+                    switch(nextState)
+                    {
+                        case '0' : dRow.add('0'); break;
+                        case '1' : dRow.add('1'); break;
+                        case 'x' : dRow.add('x'); break;
+                    }
+                    break;
+                }
+                case '1' :
+                {
+                    switch(nextState)
+                    {
+                        case '0' : dRow.add('0'); break;
+                        case '1' : dRow.add('1'); break;
+                        case 'x' : dRow.add('x'); break;
+                    }
+                    break;
+                } 
+                case 'x' :
+                {
+                    switch(nextState)
+                    {
+                        case '0' : dRow.add('0'); break;
+                        case '1' : dRow.add('1'); break;
+                        case 'x' : dRow.add('x'); break;
+                    }
+                    break;
+                } 
+            }
+        }
+    }
+
+    public void displayRow()
+    {
+        Iterator<Character> itr = dRow.listIterator();
+        System.out.print("| ");
+        while(itr.hasNext())
+        {
+            System.out.print(itr.next() + " ");
+        }
+        System.out.print("|");
+    }
+
+    public String getRow()
+    {
+        String currentRow = "";
+
+        Iterator<Character> itr = dRow.listIterator();
+        currentRow += "| ";
+        while(itr.hasNext())
+        {
+            currentRow += itr.next();
+            currentRow += " ";
+        }
+        currentRow += "|";
+        return currentRow;
+    }
+}

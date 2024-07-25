@@ -1,0 +1,123 @@
+//MAIN DRIVER CODE
+
+import VITUniversity.Students;
+import VITUniversity.Faculty;
+
+import VITUniversity.SCOPE.*;
+
+public class importingPackages 
+{
+    public static void main(String args[])
+    {
+        Students s = new Students();
+        s.set();
+        s.display();
+
+        Faculty f = new Faculty();
+        f.set();
+        f.display();
+
+        Lab scopeLab = new Lab();
+        scopeLab.display_rules();
+
+        VITUniversity.SENSE.Lab senseLab = new VITUniversity.SENSE.Lab();
+        senseLab.display_rules();
+    }    
+}
+
+
+// Faculty.java
+
+package VITUniversity;
+
+import java.util.Scanner;
+
+public class Faculty 
+{
+    public String empId;
+    public String name;
+    public String designation;
+
+    public void set()
+    {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter your employee number :");
+        this.empId = sc.next();
+        System.out.println("Enter your name :");
+        this.name = sc.next();
+        System.out.println("Enter your designation :");
+        this.designation = sc.next();
+    }
+
+    public void display()
+    {
+        System.out.println("The employee number of faculty is =" + this.empId);
+        System.out.println("The name of the faculty is = " + this.name);
+        System.out.println("The designation of the faculty is = " + this.designation);
+    }
+}
+
+// Students.java
+
+package VITUniversity;
+
+import java.util.Scanner;
+
+public class Students 
+{
+    public String regNo;
+    public String name;
+    public String address;
+
+    public void set()
+    {
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter your registration number :");
+        this.regNo = sc.next();
+        System.out.println("Enter your name :");
+        this.name = sc.next();
+        System.out.println("Enter your address :");
+        this.address = sc.next();
+    }
+
+    public void display()
+    {
+        System.out.println("The registration number of student is =" + this.regNo);
+        System.out.println("The name of the student is = " + this.name);
+        System.out.println("The address of the student is = " + this.address);
+    }    
+}
+
+
+// SCOPE.Lab
+
+package VITUniversity.SCOPE;
+
+public class Lab 
+{
+    public void display_rules()
+    {
+        System.out.println("This is the SCOPE LAB");
+        System.out.println("Turn off the computers after using them in the lab");
+        System.out.println("Do not connect any devices to the lab");
+        System.out.println("Do not surf the internet for any non academic websites in the lab");
+    }
+}
+
+
+// SENSE.Lab
+
+package VITUniversity.SENSE;
+
+public class Lab 
+{
+    public void display_rules()
+    {
+        System.out.println("This is the SENSE LAB");
+        System.out.println("Turn off the electrical devices after using them in the lab");
+        System.out.println("Follow electrical safety rules when inside the lab at all times");
+        System.out.println("Make sure that all the connections are properly grounded before turning on any devices.");
+    }
+}
