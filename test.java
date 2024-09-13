@@ -1,9 +1,7 @@
 import java.util.*;
 
-
 public class test {
-    public static void main(String args[])
-    {
+    public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         System.out.println(n);
@@ -12,28 +10,23 @@ public class test {
 
         Triangle t = new Triangle();
         t.area();
+
+        System.out.println("hello world");
     }
 }
 
-class Triangle implements Shape
-{
-    public void area()
-    {
+class Triangle implements Shape {
+    public void area() {
         System.out.println("hello");
     }
 }
 
-
-interface Shape
-{
+interface Shape {
     int area1 = 0;
 
     void area();
-    default void display()
-    {
+
+    default void display() {
         System.out.println(area1);
     }
 }
-
-
-
